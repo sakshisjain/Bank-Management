@@ -1,0 +1,22 @@
+.wrapper{
+    margin-left: 2rem;
+ width: 70rem;
+ height: auto;
+ background-color: #3a4149;
+ border: 1px solid #000;
+}
+.header {
+   text-align: left;
+   font-family: 'Open Sans';
+   padding: 1.3rem 1rem 1rem 1rem;
+ }
+ .text-white {
+   font-family: Open Sans;
+ }
+ .form {
+   width: 20%;
+ }
+ .header-wrapper {
+   background-color: #343b41;
+   border-bottom: 1px solid #000;
+ }
