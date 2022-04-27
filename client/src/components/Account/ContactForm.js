@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'reactstrap';
-import { Form, FormGroup, Label, Input} from 'reactstrap';
+import { Form, FormGroup, Label,Input} from 'reactstrap';
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 
@@ -28,7 +28,6 @@ const ContactForm = (props) => {
                             type="text"
                             name="name"
                             id="name"
-                            value={props.phone}
                             onChange={props.onphoneChange}
                         />
                     </Col>
@@ -41,9 +40,9 @@ const ContactForm = (props) => {
                 <Label className="text-white" for="name" sm={3}>Office location</Label>
                     <Col sm={9}>
                     <Input type="select" name="select" id="select" value={props.office} onChange={props.onofficeChange}>
-                        <option>London</option>
-                        <option>Tokyo</option>
-                        <option>San Francisco</option>
+                        <option value="London">London</option>
+                        <option value="Tokyo">Tokyo</option>
+                        <option value="San Francisco">San Francisco</option>
                     </Input>
                     </Col>
                 </FormGroup>

@@ -1,30 +1,50 @@
 import React,{useState} from 'react'
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Col } from 'reactstrap';
 import ContactForm from './ContactForm';
 import NameForm from './NameForm';
 import SaveButton from '../Buttons/SaveButton';
-import Axios from 'axios';
+import PropTypes from "prop-types";
+import { updateuser } from "../../actions/authActions";
+import { connect } from "react-redux";
+
 //com1->com2->com3->com4
 //store=>variables=>reducers(actions,store ke varible)
 
 
-export default function Account() {
+const Account=(props)=> {
 
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [department, setDepartment] = useState();
-    const [occupation, setOccupation] = useState();
-    const [email, setEmail] = useState();
-    const [office, setOffice] = useState();
-    const [phone, setPhone] = useState();
-    const [room, setRoom] = useState();
+    const dispatch= useDispatch()
+    const auth=useSelector(state=>state.auth)
+    const [firstName, setFirstName] = useState(auth.user.name);
+    const [lastName, setLastName] = useState("");
+    const [department, setDepartment] = useState("Web Development");
+    const [occupation, setOccupation] = useState("");
+    const [email, setEmail] = useState("");
+    const [office, setOffice] = useState("London");
+    const [phone, setPhone] = useState("");
+    const [room, setRoom] = useState("");
     
 
     const onSubmit=(e)=>{
         e.preventDefault();
-
-        Axios.post('http://localhost:5000/api/users/update',)
+        const userdata={
+            name:firstName+" "+lastName,
+            department:department,
+            occupation:occupation,
+            id:auth.user.id,
+            office:office,
+            phone:phone,
+            room:room
+        }
+        console.log(userdata);
+        dispatch(updateuser(userdata));
+        
+    }
+    const onphonechange =(e)=>{
+        console.log("phone changed");
+        setPhone(e.target.value);
     }
   return (
     <ProfileWrapper>
@@ -65,13 +85,13 @@ export default function Account() {
                 </Row>
                     <ContactForm
                         email={email}
-                        onemailchange={(e)=>setEmail(e.target.value)}
+                        onemailChange={(e)=>setEmail(e.target.value)}
                         office={office}
-                        onofficechange={(e)=>setOffice(e.target.value)}
+                        onofficeChange={(e)=>setOffice(e.target.value)}
                         phone={phone}
-                        onphonechange={(e)=>setPhone(e.target.value)}
+                        onphoneChange={onphonechange}
                         room={room}
-                        onroomchange={(e)=>setRoom(e.target.value)}
+                        onroomChange={(e)=>setRoom(e.target.value)}
                     />
                 <Row className="my-5">
                     <Col md="12">
@@ -108,3 +128,6 @@ margin-left: 2rem;
 }
 
 `;
+
+
+export default Account;

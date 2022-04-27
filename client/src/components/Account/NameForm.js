@@ -17,6 +17,7 @@ const NameForm = (props) => {
                             name="name"
                             id="name"
                             value={props.auth.user.name.split(" ")[0]}
+                            onChange={props.onfnamechange}
                         />
                     </Col>
                 </FormGroup>
@@ -28,6 +29,7 @@ const NameForm = (props) => {
                             name="name"
                             id="name"
                             value={props.auth.user.name.split(" ")[1]}
+                            onChange={props.onlnamechange}
                         />
                     </Col>
                 </FormGroup>
@@ -38,11 +40,11 @@ const NameForm = (props) => {
                 <FormGroup row>
                 <Label className="text-white" for="name" sm={3}>Department</Label>
                     <Col sm={9}>
-                    <Input type="select" name="select" id="select">
-                        <option>Web Development</option>
-                        <option>System Development</option>
-                        <option>Sales</option>
-                        <option>Human Resources</option>
+                    <Input type="select" name="select" id="select" value={props.department} onChange={props.ondeptchange}>
+                        <option value="Web Development" >Web Development</option>
+                        <option value="System Development">System Development</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Human Resources">Human Resources</option>
                     </Input>
                     </Col>
                 </FormGroup>
@@ -53,6 +55,8 @@ const NameForm = (props) => {
                             type="text"
                             name="name"
                             id="name"
+                            value={props.occupation}
+                            onChange={props.onoccchange}
                         />
                     </Col>
                 </FormGroup>

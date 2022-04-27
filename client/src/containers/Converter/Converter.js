@@ -107,6 +107,11 @@ import './converter.css'
 import styled from 'styled-components';
 
 const cur = {
+  'INRtoINR' : 1,
+  'USDtoUSD' : 1,
+  'CDtoCD' : 1,
+  'EURtoEUR' : 1,
+  'KWDtoKWD' : 1,
   'INRtoUSD' : 0.013,
   'INRtoCD': 0.017,
   'INRtoEUR': 0.012,
@@ -115,18 +120,18 @@ const cur = {
   'USDtoEUR': 0.93,
   'USDtoKWD':0.31,
   'USDtoINR' : 76.48,
-  'CDtoINR' : 0.017,
+  'CDtoINR' : 60.16,
   'CDtoUSD' : 0.79,
   'CDtoEUR': 0.73,
-  'CDtoKWD': 0.23,
-  'EURtoINR': 0.012,
-  'EURtoUSD': 0.93,
-  'EURtoCD': 0.73,
+  'CDtoKWD': 0.24,
+  'EURtoINR': 82.74,
+  'EURtoUSD': 1.08,
+  'EURtoCD': 1.38,
   'EURtoKWD': 0.33,
-  'KWDtoINR':0.0040,
-  'KWDtoUSD':0.31,
-  'KWDtoCD':0.23,
-  'KWDtoEUR' :0.33
+  'KWDtoINR': 249.87,
+  'KWDtoUSD': 3.27,
+  'KWDtoCD': 4.16,
+  'KWDtoEUR' :3.03,
 }
 
 const Converter = () => {

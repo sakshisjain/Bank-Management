@@ -33,7 +33,7 @@ router.post("/register", (req, res) => {
         const newUser = new User({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
         });
 
         // Hash password before saving in database
@@ -108,15 +108,18 @@ router.post("/login", (req, res) => {
 });
 
 router.post('/update',(req,res)=>{
-  
-  User.updateOne({email:req.body.email},{
+  console.log(req.body);
+  User.updateOne({_id:req.body.id},{
     $set:{
+      name:req.body.name,
       occupation:req.body.occupation,
       room:req.body.room,
       department:req.body.department,
-      phone:req.body.phone
+      phone:req.body.phone,
+      location:req.body.office
     }
   }).then(data=>{
+    console.log(data);
     return res.status(200).json({msg:"updated !"});
   }).catch((err)=>{
     return res.status(400).json({msg:"Update Fail !"});

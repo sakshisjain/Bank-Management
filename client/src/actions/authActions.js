@@ -46,6 +46,12 @@ export const loginUser = userData => dispatch => {
     );
 };
 
+export const updateuser=(updatedata)=>{
+  return async dispatch=>{
+  const res= await axios.post('api/users/update',updatedata)
+  console.log(res);
+}
+}
 // Set logged in user
 export const setCurrentUser = decoded => {
   return {

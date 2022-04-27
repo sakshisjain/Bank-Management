@@ -18,23 +18,28 @@ const UserSchema = new Schema({
   },
   occupation: {
     type: String,
-    required:false,
+    required:true,
+    default: ''
   },
   department: {
     type: String,
-    required:false,
+    required:true,
+    default: ''
   },
   room: {
     type: String,
-    required:false,
+    required:true,
+    default: ''
   },
   location: {
     type: String,
-    required:false,
+    required:true,
+    default: ''
   },
   phone: {
     type: Number,
-    required:false,
+    required:true,
+    default: ''
   },
   date: {
     type: Date,
